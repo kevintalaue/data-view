@@ -1,6 +1,6 @@
-PY_VER ?= 3
+PY_VER ?= 3.12
 SHELL := /bin/bash
-REPOSITORY := kevintalaue/analyse-fit-files
+REPOSITORY := kevintalaue/data-view
 GIT_HASH := $(shell git rev-parse HEAD)
 
 ifndef GITHUB_RUN_ID
