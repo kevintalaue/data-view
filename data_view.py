@@ -15,7 +15,7 @@ st.title("Welcome to Data-View")
 st.write(
     f"""
     Welcome to this open-source web app that lets you upload a CSV file containing time series telematics data for visualization and interaction.\n
-    The supported file format requires the first row to contain column headers, with the datetime in the first column as the index.\n
+    The supported CSV format must include a ‘sampled_on’ column with datetime values, an ‘spn’ column with suspect parameter numbers as its values, and a ‘spn_value’ column containing the recorded data point for each suspect parameter number at the corresponding time.\n
     """
 )
 
