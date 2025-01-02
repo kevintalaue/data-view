@@ -7,56 +7,17 @@ import plotly.graph_objects as go
 
 from plotly.subplots import make_subplots
 
-SPNS = [
-    27,
-    84,
-    100,
-    101,
-    102,
-    103,
-    105,
-    108,
-    110,
-    111,
-    157,
-    168,
-    171,
-    173,
-    190,
-    245,
-    411,
-    512,
-    623,
-    624,
-    1127,
-    1761,
-    2659,
-    3031,
-    3216,
-    3220,
-    3226,
-    3230,
-    3236,
-    3242,
-    3246,
-    3251,
-    3482,
-    3609,
-    3610,
-    3700,
-    3701,
-    3702,
-    4334,
-    4360,
-    4363,
-    4765,
-    5077,
-    5078,
-    5079,
-    5313,
-    5506,
-    5507,
-]
+from data_view.config import SPNS
+
+# Title
+st.title("Welcome to Data-View")
+
+st.write(
+    f"""
+    Welcome to this open-source web app that lets you upload a CSV file containing time series telematics data for visualization and interaction.\n
+    The supported file format requires the first row to contain column headers, with the datetime in the first column as the index.\n
+    """
+)
 
 # Upload file
 uploaded_file = st.file_uploader(
@@ -68,7 +29,19 @@ uploaded_file = st.file_uploader(
 if uploaded_file:
     df = pd.read_csv(uploaded_file)
     df = df[df["spn"].isin(SPNS)]
-    df1 = pd.pivot_table(data=df, index="sampled_on", columns="spn", values="spn_value")
+    df1 = pd.pivot_table(
+        data=df, index="sampled_on", columns="spn", values="spn_value", sort=True
+    )
+
+    start_date = df1.index.min()
+    end_date = df1.index.max()
+
+    st.write(
+        f"""
+             Data Start {start_date}\n
+             Data End {end_date}
+        """
+    )
 
     cols_to_plot = df1.columns
 
