@@ -9,6 +9,9 @@ from plotly.subplots import make_subplots
 
 from data_view.config import SPNS
 
+# Set the view to wide for all users
+st.set_page_config(layout="wide")
+
 # Title
 st.title("Welcome to Data-View")
 
