@@ -1,6 +1,6 @@
 from setuptools import find_packages, setup
 
-from tele_graph import __version__
+from data_view import __version__
 
 setup(
     name="data-view",
