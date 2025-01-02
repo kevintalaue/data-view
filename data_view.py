@@ -18,6 +18,17 @@ st.write(
     The supported CSV format must include a ‘sampled_on’ column with datetime values, an ‘spn’ column with suspect parameter numbers as its values, and a ‘spn_value’ column containing the recorded data point for each suspect parameter number at the corresponding time.\n
     """
 )
+st.markdown(
+    """
+| sampled_on           | spn  | spn_value |
+|----------------------|------|-----------|
+| 2025-01-01 10:00:00  | 123  | 50        |
+| 2025-01-01 10:05:00  | 124  | 60        |
+| 2025-01-01 10:10:00  | 125  | 55        |
+| 2025-01-01 10:15:00  | 126  | 70        |
+| 2025-01-01 10:20:00  | 127  | 65        |
+"""
+)
 
 # Upload file
 uploaded_file = st.file_uploader(
